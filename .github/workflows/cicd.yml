@@ -53,6 +53,13 @@ jobs:
       - name: Get AKS Credentials
         run: |
           az aks get-credentials --resource-group ${{ secrets.AZURE_RESOURCE_GROUP_NAME }} --name ${{ secrets.AKS_NAME }}
+      - name: Get K8s context
+        uses: azure/aks-set-context@v3
+        with:
+          cluster-name: ${{ secrets.AKS_NAME }}
+          resource-group: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
+          admin: 'false'
+          use-kubelogin: 'true'
       - name: Apply Kubernetes Configuration
         run: |
           envsubst < manifests/staging-app.yaml | kubectl apply -f -
