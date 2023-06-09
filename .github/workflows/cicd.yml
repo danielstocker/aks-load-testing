@@ -58,7 +58,7 @@ jobs:
         with:
           cluster-name: ${{ secrets.AKS_NAME }}
           resource-group: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
-          admin: 'false'
+          admin: 'true'
           use-kubelogin: 'true'
       - name: Apply Kubernetes Configuration
         run: |
