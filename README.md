@@ -73,7 +73,8 @@ az aks create \
     --enable-msi-auth-for-monitoring  \
     --generate-ssh-keys \
     --attach-acr $ACR_NAME \
-    --enable-azure-rbac
+    --enable-azure-rbac \
+    --enable-aad
 ```
 
 #### Create an Azure Load Testing instance
