@@ -64,7 +64,7 @@ jobs:
         run: |
           envsubst < manifests/staging-app.yaml | kubectl apply -f -
         env:
-          FRONTEND_IMAGE: aksloadtestdemo.azurecr.io/${{ github.repository }}:${{ github.sha }}
+          FRONTEND_IMAGE: ${{ secrets.ACR_NAME }}.azurecr.io/${{ github.repository }}:${{ github.sha }}
       - name: Create version ID
         id: version
         run: |
